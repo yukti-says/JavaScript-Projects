@@ -51,3 +51,28 @@ a.style.backgroundColor = "Green";
 
 div.appendChild(h1)
 div.appendChild(a)
+
+// append ->baad me append karo element ke
+// prepend->pahle add karo element ko
+// appendchild->andar append karo
+
+let h2 = document.createElement("h2")
+h2.innerText = "Hey there what is going on"
+div.prepend(h2)
+
+let h3 = document.createElement("h3")
+h3.innerText = "Hey yukti what's app"
+div.append(h3)
+
+// h3.remove()y
+h2.style.fontFamily = 'Gilroy'
+h2.style.textTransform = 'uppercase'
+
+// javascript se class ko lagana and remove karna class by which u add css
+// h2.classList.add("yukti")
+// class remove
+// h2.classList.remove("yukti")
+
+// toggle mean if there is class it will remove and if there is no class it will add
+h2.classList.toggle("yukti")
+
