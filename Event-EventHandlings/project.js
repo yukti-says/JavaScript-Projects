@@ -8,28 +8,52 @@
 // })
 
 
-let input = document.querySelector('#fileinp')
-let button = document.querySelector('button')
 
-button.addEventListener('click', function () {
-    input.click()
-})
 
-input.addEventListener('change', function (det) { 
-    // console.log(det);
-    // button.textContent = det.target.files[0].name
-    button.textContent = "File Selected"
+// Form submission
 
+let form = document.querySelector('form')
+
+let inputs = document.querySelectorAll('input')
+
+form.addEventListener('submit', function (dets) {
+    dets.preventDefault() //this will prevent the default action of form submission
+    // console.log(inputs[0].value);
+    // console.log(inputs[1].value);
+    // console.log(inputs[2].value);
+    // console.log(inputs[3].value);
+    
+    // creating the elements
+    let card = document.createElement('div')
+    card.classList.add('card')
+    let profile = document.createElement('div')
+    profile.classList.add('profile')
+
+    let img = document.createElement('img')
+    img.setAttribute('src', inputs[0].value)
+    img.setAttribute('alt', 'Profile Picture')
+  
     let h3 = document.createElement('h3')
-    h3.textContent = det.target.files[0].name
-    h3.style.color = 'white'
-    h3.style.fontSize = '1.5rem'
-    h3.style.fontWeight = '300'
-    h3.style.marginTop = '1rem'
-    h3.style.marginBottom = '1rem'
-    h3.style.textAlign = 'center'
-    h3.style.userSelect = 'none'
-    h3.style.marginLeft = '4px'
-    document.querySelector('#main').appendChild(h3)
+    h3.textContent = inputs[1].value
+    
+    let h5 = document.createElement('h5')
+    h5.textContent = inputs[2].value
+    let p = document.createElement('p')
+    p.textContent = inputs[3].value
+    // appending the elements
+    profile.appendChild(img)
+    card.appendChild(profile)
+    card.appendChild(h3)
+    card.appendChild(h5)
+    card.appendChild(p)
+   let main = document.querySelector('.main')
+    main.appendChild(card)
+
+    // clearing the input fields
+    inputs.forEach(function (input) {
+        if(input.type !== 'submit') {
+            input.value = ''
+        }   
+    })
     
 })
